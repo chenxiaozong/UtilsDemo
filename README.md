@@ -5,26 +5,22 @@ Android demo 封装android 应用常用工具类
 
 #### 软件架构
 ##### 1. 日志工具类 com.chen.utilsdemo.utils/ChenLog10.java
+地址：https://gitee.com/chenxiaozong/UtilsDemo
+> 封装常用日志工具类：  
 
+• 自动打印日志对应的类、行号  
+• 拼接多个日志info字段使用","拼接  
+• 控制I/V/D等级别日志打印  
+• 日志前缀，版本号控制  
 
-#### 安装教程
+> 日志示例
+```
+//调用
+ChenLog.i("日志打印，","tag1","info2")
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+//输出样式
+02-14 22:22:16.306 17225-17225/com.chen.utilsdemo I/Version:1.0|chenxzong|MainActivity.onCreate(L:15): 日志打印，tag1info2
+```
 
 
 #### 码云特技
