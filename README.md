@@ -4,7 +4,7 @@
 Android demo 封装android 应用常用工具类
 
 #### 软件架构
-软件架构说明
+##### 1. 日志工具类 com.chen.utilsdemo.utils/ChenLog10.java
 
 
 #### 安装教程
