@@ -12,6 +12,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+<<<<<<< HEAD
         ChenLog.i("test","oncreate");
+=======
+>>>>>>> 2d7d7afe277f7e9c6059410a96d0fcc05d8716c4
     }
 }
