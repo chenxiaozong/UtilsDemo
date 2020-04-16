@@ -13,7 +13,7 @@ import android.util.Log;
  */
 public class ChenLog {
     private static final String TAG = "ChenLog";
-    public static String tagPrefix = "chenxzong"; //日志前缀
+    public static String tagPrefix = TAG; //日志前缀
 
     public static String APPVERSION = "Version:";
     public static String VersionCode = "1.0";
