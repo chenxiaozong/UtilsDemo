@@ -74,7 +74,6 @@ public class NetUtils {
                     netResult.msg = response.message();
                 }
             });
-            call.execute();
 
         } catch (Throwable e) {
             if (e instanceof SocketTimeoutException) {//超时

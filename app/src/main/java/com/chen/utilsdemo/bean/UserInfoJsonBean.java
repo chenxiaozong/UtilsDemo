@@ -1,6 +1,8 @@
 package com.chen.utilsdemo.bean;
 
 
+import com.chen.utilsdemo.utils.net.BaseBean;
+
 /**
  * 版权：chenxiaozong 版权所有
  * -------------------------
@@ -11,7 +13,7 @@ package com.chen.utilsdemo.bean;
  * 日期：2020/4/16 11:49 PM
  * 描述：com.chen.utilsdemo.bean/.java
  */
-public class UserInfoJsonBean {
+public class UserInfoJsonBean extends BaseBean {
 
     /**
      * userInfo : {"name":"chenxzong","age":30,"info":"山东省青岛市李沧区"}
@@ -28,6 +30,15 @@ public class UserInfoJsonBean {
     }
 
     public static class UserInfoBean {
+        @Override
+        public String toString() {
+            return "UserInfoBean{" +
+                    "name='" + name + '\'' +
+                    ", age=" + age +
+                    ", info='" + info + '\'' +
+                    '}';
+        }
+
         /**
          * name : chenxzong
          * age : 30
@@ -63,4 +74,10 @@ public class UserInfoJsonBean {
         }
     }
 
+    @Override
+    public String toString() {
+        return "UserInfoJsonBean{" +
+                "userInfo=" + userInfo +
+                '}';
+    }
 }
