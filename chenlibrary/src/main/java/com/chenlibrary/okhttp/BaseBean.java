@@ -1,4 +1,4 @@
-package com.chen.utilsdemo.utils.okhttp;
+package com.chenlibrary.okhttp;
 
 import java.io.Serializable;
 

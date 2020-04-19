@@ -1,7 +1,5 @@
 package com.chen.utilsdemo.bean;
-
-
-import com.chen.utilsdemo.utils.okhttp.BaseBean;
+import com.chenlibrary.okhttp.BaseBean;
 
 /**
  * 版权：chenxiaozong 版权所有

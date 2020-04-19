@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/UtilsDemo.iml" filepath="$PROJECT_DIR$/UtilsDemo.iml" group="UtilsDemo" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="UtilsDemo/app" />
+      <module fileurl="file://$PROJECT_DIR$/chenlibrary/chenlibrary.iml" filepath="$PROJECT_DIR$/chenlibrary/chenlibrary.iml" group="UtilsDemo/chenlibrary" />
     </modules>
   </component>
 </project>

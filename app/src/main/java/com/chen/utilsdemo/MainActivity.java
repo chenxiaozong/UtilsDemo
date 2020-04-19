@@ -5,10 +5,10 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.chen.utilsdemo.bean.UserInfoJsonBean;
-import com.chen.utilsdemo.utils.ChenLog;
-import com.chen.utilsdemo.utils.okhttp.BaseBean;
-import com.chen.utilsdemo.utils.okhttp.ChenOkHttp;
-import com.chen.utilsdemo.utils.okhttp.ChenResultCallBack;
+import com.chenlibrary.okhttp.BaseBean;
+import com.chenlibrary.okhttp.ChenOkHttp;
+import com.chenlibrary.okhttp.ChenResultCallBack;
+import com.chenlibrary.utils.ChenLog;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,11 +26,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
         testPost();
 
         testGet();
+
+
 
     }
 
@@ -72,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void testGet(){
 
+
+
         /**
          * get 参数键值对,内部可根据键值对拼接成 xxx?key=val&key2=val2.....
          */
@@ -102,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
 //
 //                });
 
-
+        ChenOkHttp.getInstance(this).doGet(url);
 
         ChenOkHttp.getInstance(this).doGet(videoUrl).onResult(UserInfoJsonBean.class, new ChenResultCallBack<BaseBean>() {
             @Override

@@ -1,7 +1,6 @@
 package com.chen.utilsdemo.bean;
 
-
-import com.chen.utilsdemo.utils.okhttp.BaseBean;
+import com.chenlibrary.okhttp.BaseBean;
 
 import java.util.List;
 

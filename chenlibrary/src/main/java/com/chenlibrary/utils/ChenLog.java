@@ -1,6 +1,7 @@
-package com.chen.utilsdemo.utils;
+package com.chenlibrary.utils;
 
 import android.util.Log;
+
 /**
  * 版权：chenxiaozong 版权所有
  * -------------------------

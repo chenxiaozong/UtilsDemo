@@ -1,4 +1,4 @@
-package com.chen.utilsdemo.utils;
+package com.chenlibrary.utils;
 
 import com.google.gson.Gson;
 
