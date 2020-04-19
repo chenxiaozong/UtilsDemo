@@ -42,10 +42,14 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    //api 依赖 并打包,打包的aar包含 下面jar包
     api files('libs/gson-2.8.5.jar')
     api files('libs/okhttp-3.8.1.jar')
     api files('libs/okio-1.13.0.jar')
-    //api 依赖 并打包
-    //implementation : 只依赖不打包
+    //implementation : 如果只引用不打包
+//    implementation files('libs/gson-2.8.5.jar')
+//    implementation files('libs/okhttp-3.8.1.jar')
+//    implementation files('libs/okio-1.13.0.jar')
 
 }
