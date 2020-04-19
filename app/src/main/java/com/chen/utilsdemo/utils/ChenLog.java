@@ -142,6 +142,22 @@ public class ChenLog {
         }
     }
 
+
+    public static void e(Object... msg) {
+        if (!showE) {
+            return;
+        }
+        String temTag = new StringBuilder().append(generateTag()).toString();
+        String text = buildMessage(msg);
+        for (int len = text.length(); len >= MAX_LOG_LENGTH; len = text.length()) {
+            Log.e(temTag, text.substring(0, MAX_LOG_LENGTH));
+            text = text.substring(MAX_LOG_LENGTH);
+        }
+        if (text.length() > 0) {
+            Log.e(temTag, text);
+        }
+    }
+
     public static void wtf(String msg) {
         if (showWTF) {
             String tag = generateTag();

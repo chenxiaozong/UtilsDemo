@@ -1,4 +1,4 @@
-package com.chen.utilsdemo.utils.net;
+package com.chen.utilsdemo.utils.okhttp;
 
 import java.io.Serializable;
 
@@ -14,18 +14,22 @@ public class BaseBean implements Serializable {
     public int code;//后台给的状态码 && 自定义code 比如json解析失败等
     public String message, detailMessage;//错误语,错误详情
     public int httpCode;//http链接的状态码
-    public String response, httpUrl;
+    public String body, httpUrl;
+    public String urlTag;// 保存请求时的url 转码前
     public Headers httpHeader;//请求回来的头
+    public String method = "";
 
-    public BaseBean() {
-    }
-
-    public BaseBean(int httpCode, String message, String response, String httpUrl, Headers httpHeader) {
-        this.httpCode = httpCode;
+    public BaseBean(int code, String message, int httpCode, String body, String httpUrl, String urlTag, Headers httpHeader, String method) {
+        this.code = code;
         this.message = message;
-        this.response = response;
+        this.httpCode = httpCode;
+        this.body = body;
         this.httpUrl = httpUrl;
+        this.urlTag = urlTag;
         this.httpHeader = httpHeader;
+        this.method = method;
+    }
+    public BaseBean() {
     }
 
     @Override
@@ -35,9 +39,11 @@ public class BaseBean implements Serializable {
                 ", message='" + message + '\'' +
                 ", detailMessage='" + detailMessage + '\'' +
                 ", httpCode=" + httpCode +
-                ", response='" + response + '\'' +
+                ", body='" + body + '\'' +
                 ", httpUrl='" + httpUrl + '\'' +
+                ", urlTag='" + urlTag + '\'' +
                 ", httpHeader=" + httpHeader +
+                ", method='" + method + '\'' +
                 '}';
     }
 }

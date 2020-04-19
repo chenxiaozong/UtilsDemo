@@ -1,7 +1,7 @@
 package com.chen.utilsdemo.bean;
 
 
-import com.chen.utilsdemo.utils.net.BaseBean;
+import com.chen.utilsdemo.utils.okhttp.BaseBean;
 
 import java.util.List;
 
