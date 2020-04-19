@@ -5,16 +5,10 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.chen.utilsdemo.bean.UserInfoJsonBean;
-<<<<<<< HEAD
 import com.chen.utilsdemo.utils.ChenLog;
 import com.chen.utilsdemo.utils.okhttp.BaseBean;
 import com.chen.utilsdemo.utils.okhttp.ChenOkHttp;
 import com.chen.utilsdemo.utils.okhttp.ChenResultCallBack;
-=======
-import com.chen.utilsdemo.utils.net.BaseBean;
-import com.chen.utilsdemo.utils.net.ChenOkHttp;
-import com.chen.utilsdemo.utils.net.ChenResultCallBack;
->>>>>>> 34c59769237e575a830737e5fd2148406825b948
 
 import java.util.HashMap;
 import java.util.Map;
@@ -33,58 +27,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-<<<<<<< HEAD
-=======
-
-//        testPost();
-
-        testGet();
-
-    }
-
-    private void testPost() {
-
-        /**
-         * post Body 参数
-         */
-        Map<String, Object> bodyMap = new HashMap<>();
-        bodyMap.put("chen", "chenxzong");
-        bodyMap.put("age", 13);
-        bodyMap.put("addr", "青岛市李沧区");
-        bodyMap.put("girl", false);
-        String jsonBody = "string";
-
-        /**
-         * headers 参数
-         */
-        HashMap<String, String> headersMap = new HashMap<>();
-        headersMap.put("token", "token");
-
-        ChenOkHttp.getInstance(this)
-                .doPost(url)
-                .addHeaders(headersMap)
-                .addMapBody(bodyMap)
-                .onResult(null, new ChenResultCallBack<BaseBean>() {
-                    @Override
-                    public void onSuccess(BaseBean bean) {
-
-                    }
-                });
-    }
-
-
-    public void testGet(){
-
-        /**
-         * get 参数键值对,内部可根据键值对拼接成 xxx?key=val&key2=val2.....
-         */
-        Map<String, Object> bodyMap = new HashMap<>();
-        bodyMap.put("chen", "chenxzong");
-        bodyMap.put("age", 13);
-        bodyMap.put("addr", "青岛市李沧区");
-        bodyMap.put("girl", false);
-        String jsonBody = "string";
->>>>>>> 34c59769237e575a830737e5fd2148406825b948
 
         testPost();
 
@@ -95,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
     private void testPost() {
 
         /**
-<<<<<<< HEAD
          * post Body 参数
          */
         Map<String, Object> bodyMap = new HashMap<>();
@@ -111,14 +52,10 @@ public class MainActivity extends AppCompatActivity {
 
         /**
          * headers 参数
-=======
-         * header参数
->>>>>>> 34c59769237e575a830737e5fd2148406825b948
          */
         HashMap<String, String> headersMap = new HashMap<>();
         headersMap.put("token", "token");
 
-<<<<<<< HEAD
         ChenOkHttp.getInstance(this)
                 .doPost(url)
                 .addHeaders(headersMap)
@@ -177,33 +114,6 @@ public class MainActivity extends AppCompatActivity {
             public void onError(BaseBean bean) {
             }
         });
-=======
-        /**
-         * 需要拼接 url参数
-         */
-        ChenOkHttp.getInstance(this)
-                .doGet(url, bodyMap)
-                .addHeaders(headersMap)
-                .onResult(UserInfoJsonBean.class, new ChenResultCallBack<BaseBean>() {
-                    @Override
-                    public void onSuccess(BaseBean bean) {
-                    }
-
-                });
-
-
-
-//        ChenOkHttp.getInstance(this).doGet(url).onResult(UserInfoJsonBean.class, new ChenResultCallBack<BaseBean>() {
-//            @Override
-//            public void onSuccess(BaseBean bean) {
-//                ChenLog.i("onSuccess:",bean);
-//            }
-//
-//            @Override
-//            public void onError(BaseBean bean) {
-//            }
-//        });
->>>>>>> 34c59769237e575a830737e5fd2148406825b948
     }
 
 

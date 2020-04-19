@@ -1,8 +1,4 @@
-<<<<<<< HEAD:app/src/main/java/com/chen/utilsdemo/utils/okhttp/ChenResultCallBack.java
 package com.chen.utilsdemo.utils.okhttp;
-=======
-package com.chen.utilsdemo.utils.net;
->>>>>>> 34c59769237e575a830737e5fd2148406825b948:app/src/main/java/com/chen/utilsdemo/utils/okhttp/ChenResultCallBack.java
 
 /**
  * okHttp的回调监听
