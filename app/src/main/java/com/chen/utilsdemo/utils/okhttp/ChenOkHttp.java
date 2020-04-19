@@ -1,4 +1,4 @@
-package com.chen.utilsdemo.utils.okhttp;
+package com.chen.utilsdemo.utils.net;
 
 
 import android.content.Context;
@@ -60,7 +60,7 @@ public class ChenOkHttp<T> {
 
     public static ChenOkHttp getInstance(Context context) {
         if (chenOkHttpUtilInstance == null) {
-            synchronized (ChenOkHttp.class) {
+            synchronized (NetUtils.class) {
                 if (chenOkHttpUtilInstance == null) {
                     chenOkHttpUtilInstance = new ChenOkHttp(context.getApplicationContext());
                 }
@@ -145,6 +145,9 @@ public class ChenOkHttp<T> {
         }
     }
 
+    public interface ResultListener {
+        void strResult(NetUtils.Result result);
+    }
 
     public class ChenBuilder extends Request.Builder {
         private int method = GET;       //默认方法
@@ -200,15 +203,13 @@ public class ChenOkHttp<T> {
 
             final String httpUrl = request.url().toString();
             final Headers headers = request.headers();
-            final String method = request.method();
-
 
             Call call = mClient.newCall(request);
             call.enqueue(new ResponseCallBack() {
                 @Override
                 public void onFailure(Call call, IOException e) {
                     e.printStackTrace();
-                    BaseBean baseBean = new BaseBean(ChenResultCallBack.CODE_CONNECTXCEPTEION,e.getMessage(),ChenResultCallBack.CODE_FAILED,null,httpUrl,urlTag, headers,method);
+                    BaseBean baseBean = new BaseBean(ChenResultCallBack.CODE_CONNECTXCEPTEION,e.getMessage(),ChenResultCallBack.CODE_FAILED,null,httpUrl,urlTag, headers);
                     postResultBean(resultCallBack, baseBean);
                 }
 
@@ -227,17 +228,16 @@ public class ChenOkHttp<T> {
                             bean.httpUrl = httpUrl;
                             bean.urlTag = urlTag;
                             bean.code = ChenResultCallBack.CODE_SUCCESS;
-                            bean.method = method;
 
                             postResultBean(resultCallBack, bean);
                         } catch (Exception e) {
                             e.printStackTrace();
-                            BaseBean baseBean = new BaseBean(ChenResultCallBack.CODE_JSONEXCEPTION,e.getMessage(),response.code(),body,httpUrl,urlTag, response.headers(),method);
+                            BaseBean baseBean = new BaseBean(ChenResultCallBack.CODE_JSONEXCEPTION,e.getMessage(),response.code(),body,httpUrl,urlTag, response.headers());
                             postResultBean(resultCallBack, baseBean);
                         }
                     } else {
                         //服务器返回其他状态
-                        BaseBean baseBean = new BaseBean(ChenResultCallBack.CODE_SERVER_RESPONSE,response.message(),response.code(),body,httpUrl,urlTag, response.headers(),method);
+                        BaseBean baseBean = new BaseBean(ChenResultCallBack.CODE_SERVER_RESPONSE,response.message(),response.code(),body,httpUrl,urlTag, response.headers());
 
                         postResultBean(resultCallBack,baseBean );
                     }
@@ -285,9 +285,8 @@ public class ChenOkHttp<T> {
             }
             try {
                 String json = new Gson().toJson(map);
-                ChenLog.i(TAG,"\n addMapBody > MapBody:", json);
+                ChenLog.i("toJson:>>>", json);
                 RequestBody body = RequestBody.create(MEDIATYPE_JSON, json);
-                ChenLog.i(TAG,"\n addMapBody  > RequestBody:",body);
                 this.post(body);
             } catch (Throwable throwable) {
                 throw throwable;
@@ -309,9 +308,7 @@ public class ChenOkHttp<T> {
             }
 
             //json格式body - utf-8编码
-            ChenLog.i(TAG,"\n addJsonBody > JsonBody:",jsonBody);
             RequestBody body = RequestBody.create(MEDIATYPE_JSON, jsonBody);
-            ChenLog.i(TAG,"\n addJsonBody > RequestBody:",body);
             this.post(body);
             return this;
         }
@@ -328,7 +325,6 @@ public class ChenOkHttp<T> {
         if (isSucces) {
             ChenLog.i(TAG,
                     "\n============================",header,"============================",
-                    "\n [Method  ]:", baseBean.method,
                     "\n [HttpUrl ]:", baseBean.httpUrl,
                     "\n [UrlTag  ]:", baseBean.urlTag,
                     "\n [HttpCode]:", baseBean.httpCode,
@@ -342,7 +338,6 @@ public class ChenOkHttp<T> {
         } else {
             ChenLog.e(TAG,
                     "\n============================",header,"============================",
-                    "\n [Method  ]:", baseBean.method,
                     "\n [HttpUrl ]:", baseBean.httpUrl,
                     "\n [UrlTag  ]:", baseBean.urlTag,
                     "\n [HttpCode]:", baseBean.httpCode,

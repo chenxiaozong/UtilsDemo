@@ -19,7 +19,21 @@ public class BaseBean implements Serializable {
     public Headers httpHeader;//请求回来的头
     public String method = "";
 
+<<<<<<< HEAD:app/src/main/java/com/chen/utilsdemo/utils/okhttp/BaseBean.java
     public BaseBean(int code, String message, int httpCode, String body, String httpUrl, String urlTag, Headers httpHeader, String method) {
+=======
+    public String getUrlTag() {
+        return urlTag;
+    }
+
+    public void setUrlTag(String urlTag) {
+        this.urlTag = urlTag;
+    }
+
+    public BaseBean() {
+    }
+    public BaseBean(int code, String message, int httpCode, String body, String httpUrl, String urlTag, Headers httpHeader) {
+>>>>>>> 34c59769237e575a830737e5fd2148406825b948:app/src/main/java/com/chen/utilsdemo/utils/net/BaseBean.java
         this.code = code;
         this.message = message;
         this.httpCode = httpCode;
@@ -30,6 +44,10 @@ public class BaseBean implements Serializable {
         this.method = method;
     }
     public BaseBean() {
+    }
+
+    public BaseBean(String urlTag) {
+        this.urlTag = urlTag;
     }
 
     @Override
